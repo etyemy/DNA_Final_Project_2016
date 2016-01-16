@@ -28,6 +28,8 @@ namespace FinalProject.UI
 
         private List<Mutation> _mutationList;
         private Patient _currPatient;
+        public int progressBarCounter;
+
 
         //Initialize the MainForm with all User Controls, positioning them on the form
         public MainForm()
@@ -65,6 +67,7 @@ namespace FinalProject.UI
         //Clear all data from MainForm.
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            progressBarCounter = 0;
             _mutationList = null;
             _currPatient = null;
             articlesUserControl.clearAll();
@@ -139,12 +142,14 @@ namespace FinalProject.UI
         //Show the about message.
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("                        AutoAnalyze\n" +
-                            "                              2015\n\n" +
-                            "                        Created By \n\n" +
-                            "                    Moti Monsonego\n\n" +
-                            "       Azrieli - College Of Engineering\n\n" +
-                            "       Email: motimonso@gmail.com", "About");
+            MessageBox.Show("                      AutoAnalyze v2.0\n\n" +
+                            "                              2016 \n\n" +
+                            "                          Created By \n\n" +
+                            "                           Etye Myer \n\n" +     
+                            "                     Moti Monsonego\n\n" +
+                            "        Jerusalem College Of Engineering\n\n" +
+                            "         Email: etyemyer@gmail.com\n\n" +
+                            "         Email: motimonso@gmail.com", "About");
 
         }
 
@@ -167,61 +172,10 @@ namespace FinalProject.UI
         private void xMLWithGermlineDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataTable dt = GetDataTableFromDGV(mutationUserControl.getDGV());
-            /*
-
-            // Create an Excel object
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-
-            //Create workbook object
-            string str = @"C:\Users\etyem_000\Desktop\test.xlsx";
-            Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Open(Filename: str);
-
-            //Create worksheet object
-            Microsoft.Office.Interop.Excel.Worksheet worksheet = workbook.ActiveSheet;
-
-            // Column Headings
-            int iColumn = 0;
-
-            foreach (DataColumn c in dt.Columns)
-            {
-                iColumn++;
-                excel.Cells[1, iColumn] = c.ColumnName;
-            }
-
-            // Row Data
-            int iRow = worksheet.UsedRange.Rows.Count - 1;
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                iRow++;
-
-                // Row's Cell Data
-                iColumn = 0;
-                foreach (DataColumn c in dt.Columns)
-                {
-                    iColumn++;
-                    excel.Cells[iRow + 1, iColumn] = dr[c.ColumnName];
-                }
-            }
-
-            ((Microsoft.Office.Interop.Excel._Worksheet)worksheet).Activate();
-
-            //Save the workbook
-            workbook.Save();
-
-            //Close the Workbook
-            workbook.Close();
-
-            // Finally Quit the Application
-            ((Microsoft.Office.Interop.Excel._Application)excel).Quit();
-            */
-            //uncomment to create .xml fiel
-            
+            XLSExportHandler handler = new XLSExportHandler();
             DataSet dS = new DataSet();
             dS.Tables.Add(dt);
-            dS.WriteXml(File.OpenWrite("test.xml"));
-             
-            //dS.WriteXml(File.OpenWrite(Properties.Settings.Default.ExportSavePath));
+            handler.saveXLS(patientUserControl.TestName, dS);
 
         }
         private DataTable GetDataTableFromDGV(DataGridView dgv)
@@ -254,6 +208,9 @@ namespace FinalProject.UI
         {
 
         }
-        
+        public InfoAnalyzeUserControl getInfoAnalyzerfromMainForm(){
+            return this.infoAnalyzeUserControl;
+        }
     }
+
 }

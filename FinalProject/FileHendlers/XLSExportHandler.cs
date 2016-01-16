@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -87,6 +88,113 @@ namespace FinalProject.FileHendlers
             //Sets the column width to longest width for each column.
             Columns columns = new Columns();
             for (int i = 0; i < 12; i++)
+            {
+                columns.Append(CreateColumnData((UInt32)i + 1, (UInt32)i + 1, GetWidth("Calibri", 11, longestWordPerColumn[i])));
+            }
+            ws.Append(columns);
+
+
+            ws.Append(sd);
+            wsp.Worksheet = ws;
+            wsp.Worksheet.Save();
+            Sheets sheets = new Sheets();
+            Sheet sheet = new Sheet();
+            sheet.Name = "Sheet1";
+            sheet.SheetId = 1;
+            sheet.Id = wbp.GetIdOfPart(wsp);
+            sheets.Append(sheet);
+            wb.Append(fv);
+            wb.Append(sheets);
+            xl.WorkbookPart.Workbook = wb;
+            xl.WorkbookPart.Workbook.Save();
+            xl.Close();
+        }
+
+        //OverRide
+        public void saveXLS(String testName, DataSet ds)
+        {
+            SpreadsheetDocument xl = null;
+            string fullPath = Properties.Settings.Default.ExportSavePath + @"\" + testName;
+            fullPath += ".xlsx";
+            try
+            {
+                xl = SpreadsheetDocument.Create(fullPath, SpreadsheetDocumentType.Workbook);
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Another Copy of the Document is open, Please close the document and retry export");
+                throw;
+            }
+            WorkbookPart wbp = xl.AddWorkbookPart();
+            WorksheetPart wsp = wbp.AddNewPart<WorksheetPart>();
+            Workbook wb = new Workbook();
+            FileVersion fv = new FileVersion();
+            fv.ApplicationName = "Microsoft Office Excel";
+            Worksheet ws = new Worksheet();
+            SheetData sd = new SheetData();
+            WorkbookStylesPart wbsp = wbp.AddNewPart<WorkbookStylesPart>();
+            wbsp.Stylesheet = GenerateStyleSheet();
+            wbsp.Stylesheet.Save();
+
+            //save the longest width for each column.
+            string[] longestWordPerColumn = new string[35];
+
+            int k = 0;
+
+            //create and add header row.
+            Row headerRow = new Row();
+            //add headers for germline mutation export
+            string[] germlineHeaders =  { "Chromosome", "Position", "Gene Name", "Ref", "Var", "Strand", "Ref Codon", "Var Codon", "Ref AA", "Var AA", "AA Name", "CDS Name", "Cosmic Details", "Shows", "History", "RefSNP", "Clinical Significance", "MAF", "Chromosome Sample Count",  "Alleles", "Allepe pop %" };
+            foreach (string s in germlineHeaders)
+            {
+                Cell cell = new Cell();
+                cell.DataType = CellValues.String;
+                cell.CellValue = new CellValue(s);
+                cell.StyleIndex = 1;
+                headerRow.AppendChild(cell);
+                longestWordPerColumn[k] = s;
+                k++;
+            }
+            sd.AppendChild(headerRow);
+            List<Mutation> mutationList = new List<Mutation>();//remove this
+            //create and add rows for each mutation.
+
+
+            //Here we go through ds
+            int tbllength = ds.Tables[0].Rows.Count;
+            String[] infoString = new String[21];
+
+
+            for (int rowNum = 0; rowNum < tbllength; rowNum++)//for each mutation m
+            {
+                Row newRow = new Row();
+                for (int j = 0; j < 21; j++)
+                {
+                    infoString[j] = (string)ds.Tables[0].Rows[rowNum].ItemArray[j];
+                }
+                //string[] infoString = m.getInfoForExport();
+                for (int i = 0; i < infoString.Length; i++)
+                {
+                    Cell cell1 = new Cell();
+                    if (i == 1)
+                        cell1.DataType = CellValues.Number;
+                    else
+                        cell1.DataType = CellValues.String;
+                    cell1.CellValue = new CellValue(infoString[i]);
+                    if (!infoString[12].Equals("-----"))//index 12 is the Cosmic Name postion so
+                        cell1.StyleIndex = 2;
+                    else
+                        cell1.StyleIndex = 3;
+                    newRow.AppendChild(cell1);
+                    //if (longestWordPerColumn[i].Length < infoString[i].Length)
+                    //    longestWordPerColumn[i] = infoString[i];
+                }
+                sd.AppendChild(newRow);
+            }
+
+            //Sets the column width to longest width for each column.
+            Columns columns = new Columns();
+            for (int i = 0; i < 21; i++)
             {
                 columns.Append(CreateColumnData((UInt32)i + 1, (UInt32)i + 1, GetWidth("Calibri", 11, longestWordPerColumn[i])));
             }

@@ -39,8 +39,8 @@
             this.docxWithDetailsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.docxWithoutDetailsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xlsxMutationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xMLWithGermlineDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,20 +73,20 @@
             // 
             this.clearAllMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.clearAllMenuItem.Name = "clearAllMenuItem";
-            this.clearAllMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearAllMenuItem.Size = new System.Drawing.Size(118, 22);
             this.clearAllMenuItem.Text = "Clear All";
             this.clearAllMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
             // 
             // settingMenuItem
             // 
             this.settingMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.settingMenuItem.Name = "settingMenuItem";
-            this.settingMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingMenuItem.Size = new System.Drawing.Size(118, 22);
             this.settingMenuItem.Text = "Setting";
             this.settingMenuItem.Click += new System.EventHandler(this.settingToolStripMenuItem_Click);
             // 
@@ -94,7 +94,7 @@
             // 
             this.exitMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(118, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -112,23 +112,30 @@
             // docxWithDetailsMenuItem
             // 
             this.docxWithDetailsMenuItem.Name = "docxWithDetailsMenuItem";
-            this.docxWithDetailsMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.docxWithDetailsMenuItem.Size = new System.Drawing.Size(225, 22);
             this.docxWithDetailsMenuItem.Text = "DOCX - With Details";
             this.docxWithDetailsMenuItem.Click += new System.EventHandler(this.ExportMenuItem_Click);
             // 
             // docxWithoutDetailsMenuItem
             // 
             this.docxWithoutDetailsMenuItem.Name = "docxWithoutDetailsMenuItem";
-            this.docxWithoutDetailsMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.docxWithoutDetailsMenuItem.Size = new System.Drawing.Size(225, 22);
             this.docxWithoutDetailsMenuItem.Text = "DOCX - Without Details";
             this.docxWithoutDetailsMenuItem.Click += new System.EventHandler(this.ExportMenuItem_Click);
             // 
             // xlsxMutationMenuItem
             // 
             this.xlsxMutationMenuItem.Name = "xlsxMutationMenuItem";
-            this.xlsxMutationMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.xlsxMutationMenuItem.Size = new System.Drawing.Size(225, 22);
             this.xlsxMutationMenuItem.Text = "XLSX - Mutation ";
             this.xlsxMutationMenuItem.Click += new System.EventHandler(this.ExportMenuItem_Click);
+            // 
+            // xMLWithGermlineDetailsToolStripMenuItem
+            // 
+            this.xMLWithGermlineDetailsToolStripMenuItem.Name = "xMLWithGermlineDetailsToolStripMenuItem";
+            this.xMLWithGermlineDetailsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.xMLWithGermlineDetailsToolStripMenuItem.Text = "XLSX - With Germline Details";
+            this.xMLWithGermlineDetailsToolStripMenuItem.Click += new System.EventHandler(this.xMLWithGermlineDetailsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -136,13 +143,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // xMLWithGermlineDetailsToolStripMenuItem
-            // 
-            this.xMLWithGermlineDetailsToolStripMenuItem.Name = "xMLWithGermlineDetailsToolStripMenuItem";
-            this.xMLWithGermlineDetailsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.xMLWithGermlineDetailsToolStripMenuItem.Text = "XML - With Germline Details";
-            this.xMLWithGermlineDetailsToolStripMenuItem.Click += new System.EventHandler(this.xMLWithGermlineDetailsToolStripMenuItem_Click);
             // 
             // MainForm
             // 

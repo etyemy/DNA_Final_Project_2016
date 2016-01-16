@@ -172,7 +172,7 @@ namespace DNA_Part_2
             waitReadyState();
             clickSubmit(webBrowser);
             Application.DoEvents();
-            System.Threading.Thread.Sleep(8500);
+            System.Threading.Thread.Sleep(1000);
             waitReadyState(webBrowser);
             String browserContentsJson = webBrowser1.Document.Body.InnerText;
             isStartup = false;

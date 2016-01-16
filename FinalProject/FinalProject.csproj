@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs" />
+    <Compile Include="FileHendlers\XLSdataTableHandlers.cs" />
     <Compile Include="FileHendlers\DOCExportHandler.cs" />
     <Compile Include="FileHendlers\XLSExportHandler.cs" />
     <Compile Include="GeneralMethods.cs" />
@@ -142,6 +143,12 @@
     </Compile>
     <Compile Include="UI\FilterArticlesForm.Designer.cs">
       <DependentUpon>FilterArticlesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AutoAnalyzeSplashScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AutoAnalyzeSplashScreenForm.Designer.cs">
+      <DependentUpon>AutoAnalyzeSplashScreenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SearchResultForm.cs">
       <SubType>Form</SubType>
@@ -202,6 +209,9 @@
     <EmbeddedResource Include="UI\ArticleTabPage.resx">
       <DependentUpon>ArticleTabPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\AutoAnalyzeSplashScreenForm.resx">
+      <DependentUpon>AutoAnalyzeSplashScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FilterArticlesForm.resx">
       <DependentUpon>FilterArticlesForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -217,6 +227,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InfoAnalyzeUserControl.resx">
       <DependentUpon>InfoAnalyzeUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -261,6 +272,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\SplashScreen1.png" />
+    <None Include="Resources\SplashScreen.png" />
+    <None Include="Resources\WelcomeScreen.png" />
     <None Include="Resources\dna-science-free_wallpaper.jpg" />
     <None Include="Resources\AutoAnalyze2.0_bot_banner.png" />
     <None Include="Resources\dbSNPLOGO.jpg" />

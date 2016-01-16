@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mutationDataGridView = new System.Windows.Forms.DataGridView();
             this.chromosomeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +64,14 @@
             this.mutationDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.mutationDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.mutationDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mutationDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mutationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.mutationDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chromosomeCol,
@@ -87,12 +96,11 @@
             this.alleles,
             this.allelesPercenage});
             this.mutationDataGridView.Location = new System.Drawing.Point(3, 0);
-            this.mutationDataGridView.MultiSelect = false;
             this.mutationDataGridView.Name = "mutationDataGridView";
             this.mutationDataGridView.ReadOnly = true;
             this.mutationDataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.mutationDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.mutationDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.mutationDataGridView.Size = new System.Drawing.Size(1245, 188);
             this.mutationDataGridView.TabIndex = 0;
             this.mutationDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mutationDataGridView_CellContentClick);
@@ -103,7 +111,7 @@
             this.chromosomeCol.HeaderText = "Chromosome";
             this.chromosomeCol.Name = "chromosomeCol";
             this.chromosomeCol.ReadOnly = true;
-            this.chromosomeCol.Width = 59;
+            this.chromosomeCol.Width = 70;
             // 
             // positionCol
             // 
@@ -159,7 +167,7 @@
             this.varCodonCol.HeaderText = "Var Codon";
             this.varCodonCol.Name = "varCodonCol";
             this.varCodonCol.ReadOnly = true;
-            this.varCodonCol.Width = 59;
+            this.varCodonCol.Width = 170;
             // 
             // refAACol
             // 
@@ -225,7 +233,7 @@
             this.refSNP.HeaderText = "refSNP";
             this.refSNP.Name = "refSNP";
             this.refSNP.ReadOnly = true;
-            this.refSNP.Width = 59;
+            this.refSNP.Width = 70;
             // 
             // clinicalSig
             // 
@@ -233,7 +241,7 @@
             this.clinicalSig.HeaderText = "Clinical Significance";
             this.clinicalSig.Name = "clinicalSig";
             this.clinicalSig.ReadOnly = true;
-            this.clinicalSig.Width = 59;
+            this.clinicalSig.Width = 160;
             // 
             // maf
             // 
@@ -249,7 +257,7 @@
             this.chromSampleCount.HeaderText = "Chrom Sample Count";
             this.chromSampleCount.Name = "chromSampleCount";
             this.chromSampleCount.ReadOnly = true;
-            this.chromSampleCount.Width = 59;
+            this.chromSampleCount.Width = 160;
             // 
             // alleles
             // 
@@ -265,7 +273,7 @@
             this.allelesPercenage.HeaderText = "Allele Pop. %";
             this.allelesPercenage.Name = "allelesPercenage";
             this.allelesPercenage.ReadOnly = true;
-            this.allelesPercenage.Width = 59;
+            this.allelesPercenage.Width = 160;
             // 
             // MutationUserControl
             // 

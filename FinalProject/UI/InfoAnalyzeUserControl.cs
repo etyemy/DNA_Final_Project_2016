@@ -142,6 +142,7 @@ namespace FinalProject.UI
                     }
                     tempMutation.NumOfShows = Convert.ToInt16(s[(int)XlsMinPlace.NumOfShows]);
                     _mutationList.Add(tempMutation);
+                    //_analyzeBackgroundWorker.ReportProgress(_mainForm.progressBarCounter);
                     _analyzeBackgroundWorker.ReportProgress(i);
                     i++;
                 }
@@ -153,11 +154,19 @@ namespace FinalProject.UI
                 }
             }
         }
+
+        //added
+
+        public void reportProgressToUserControl(int progress)
+        {
+            _analyzeBackgroundWorker.ReportProgress(progress); ;
+        }
         //Report analyze progress.
         private void analyzeBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             //this.progressBarLabel.Text = "Status: Analyzing Line: " + (e.ProgressPercentage) + " of " + _mutationsDetailsList.Count;
-            this.progressBarLabel.Text = "Status: Analyzing Information";
+            this.progressBarLabel.Text = "Status: Analyzing, this may take several minutes";
+            //this.progressBarLabel.Text = "Status: Analyzing Information,";
             progressBar1.Value = (100 / _mutationsDetailsList.Count) * e.ProgressPercentage;
         }
 
@@ -178,8 +187,10 @@ namespace FinalProject.UI
             {
                 _mainForm.ArticlesUC.initArticleUC(_mutationList);
                 progressBar1.Value = 100;
-                progressBarLabel.Text += ", Complete!";
-                MessageBox.Show("Analization Completed");
+                progressBar1.ForeColor = System.Drawing.Color.LightBlue;//"#00CED1";
+                progressBarLabel.Text = "Analyzation of Lines: " + _mutationsDetailsList.Count +" of " + _mutationsDetailsList.Count + ", Completed!";
+                //progressBarLabel.Text += "Analyzation of Lines:" + _mutationsDetailsList.Count + " of " + _mutationsDetailsList.Count + ", Complete!";
+                MessageBox.Show("Analyzation Completed with no Errors");
             }
             analyzeButton.Enabled = true;
         }

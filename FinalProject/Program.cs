@@ -22,6 +22,21 @@ namespace FinalProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            AutoAnalyzeSplashScreenForm splashScreen = new AutoAnalyzeSplashScreenForm();
+
+            splashScreen.Shown += new EventHandler((o, e) =>
+            {
+                System.Threading.Thread t = new System.Threading.Thread(() =>
+                {
+                    System.Threading.Thread.Sleep(5000);
+                    splashScreen.Invoke(new Action(() => { splashScreen.Close(); }));
+
+                });
+                t.IsBackground = true;
+                t.Start();
+            });
+
+            Application.Run(splashScreen);
             Application.Run(new MainForm());
         }
 

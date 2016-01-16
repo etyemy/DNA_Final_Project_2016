@@ -19,12 +19,15 @@ namespace FinalProject.UI
     {
         private List<Mutation> _mutationList;
         private MainForm _mainForm;
+
         //initialize the MutationUserControl
         public MutationUserControl(MainForm mainForm)
         {
+
             InitializeComponent();
             _mainForm = mainForm;
             _mutationList = null;
+            _mainForm.progressBarCounter = 0;//progress item counter
             mutationDataGridView.MouseEnter += (s, e) => this.Focus();
             mutationDataGridView.CellContentClick += dataGridView1_CellClick;
         }
@@ -49,7 +52,7 @@ namespace FinalProject.UI
                 }
                 
             }
-            if(e.ColumnIndex==15)
+            if(e.ColumnIndex==15)//ADDED LINK TO NCBI REFSNP TO OPEN BROWSER WHEN CLICKED
             {
                 String tempRs = mutationDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 String ncbiUrl = "http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?rs=" + tempRs;
@@ -68,6 +71,7 @@ namespace FinalProject.UI
         //Initialize the table with the details from the mutation list.
         public void initTable(List<Mutation> mutationList)
         {
+
             _mutationList = mutationList;
             if (_mutationList != null)
             {
@@ -106,25 +110,31 @@ namespace FinalProject.UI
                             tempRow.Cells[14] = new DataGridViewTextBoxCell();
                         tempRow.Cells[14].Value = historyNum;
                         if (!m.CosmicName.Equals("-----"))
-                            tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");//#ABCDEF
+                            tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#90EE90");//#ABCDEF
 
                         
-                        if (m.isCodingInControlArea())
+                        if (m.isCodingInControlArea())//checks if chromosome position is in control 10 base area. which means that the position the Nucleotide is in a no coding area but is 10 or less positions from any exon in the gene
                         {
                             tempRow.Cells[6].Value = "No Coding - Control Area 10 Base";
                             tempRow.Cells[7].Value = "No Coding - Control Area 10 Base";
-                            tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#90EE90");
+                            tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");
                         }
 
 
-                        Double d1 = Convert.ToDouble(refSnp.allelesPerc.Substring(0, 4)) ;
+                        Double d1 = Convert.ToDouble(refSnp.allelesPerc.Substring(0, 4)) ;//checks if percentage is below 1%
 
                         if ( d1== 0.99 || d1 == 0.01)
                         {
-                                tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#90EE90");
+                            tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");
                         }
                         mutationDataGridView.Rows.Add(tempRow);
                         mutationDataGridView.PerformLayout();
+                        
+                        //progress bar issues
+                        //_mainForm.progressBarCounter++;
+                        //InfoAnalyzeUserControl uc = _mainForm.getInfoAnalyzerfromMainForm();
+                        //uc.reportProgressToUserControl(_mainForm.progressBarCounter);
+                        
                     }
                     catch (Exception)
                     {
@@ -138,6 +148,7 @@ namespace FinalProject.UI
         //Clear all the data from the table
         public void clearAll()
         {
+            _mainForm.progressBarCounter = 0;
             _mutationList = null;
             mutationDataGridView.Rows.Clear();
         }
