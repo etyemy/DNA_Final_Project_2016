@@ -69,11 +69,9 @@
     <OutputPath>bin\x86\Aviad\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Icon-DNA.ico</ApplicationIcon>
+    <ApplicationIcon>aa_Final_Icon.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <ManifestCertificateThumbprint>3C53F0A42A8E40B90CA4F5BF82388819E03B10B3</ManifestCertificateThumbprint>
   </PropertyGroup>
@@ -85,6 +83,38 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Aviad|x64'">
+    <OutputPath>bin\x64\Aviad\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -205,9 +235,13 @@
     <Compile Include="FileHendlers\CSVHandler.cs" />
     <EmbeddedResource Include="UI\ArticlesUserControl.resx">
       <DependentUpon>ArticlesUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ArticleTabPage.resx">
       <DependentUpon>ArticleTabPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AutoAnalyzeSplashScreenForm.aa-DJ.resx">
+      <DependentUpon>AutoAnalyzeSplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AutoAnalyzeSplashScreenForm.resx">
       <DependentUpon>AutoAnalyzeSplashScreenForm.cs</DependentUpon>
@@ -265,6 +299,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aa_Final_Icon.ico" />
     <Content Include="Database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -272,6 +307,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\SS21.png" />
+    <None Include="Resources\SS2.png" />
+    <None Include="Resources\NameLogoSmall.png" />
+    <None Include="Resources\MainFormWallpaper.png" />
     <None Include="Resources\SplashScreen1.png" />
     <None Include="Resources\SplashScreen.png" />
     <None Include="Resources\WelcomeScreen.png" />
@@ -280,6 +319,11 @@
     <None Include="Resources\dbSNPLOGO.jpg" />
     <None Include="Resources\dbSNPLOGO1.jpg" />
     <None Include="Resources\AutoAnalyze2.0_bot_bannerTop.png" />
+    <None Include="Resources\dna-logo-digital-intelligence.png" />
+    <None Include="Resources\dna-science-free_wallpaper1.jpg" />
+    <None Include="Resources\banner.jpg" />
+    <None Include="Resources\Analyze button.png" />
+    <None Include="Resources\Analyze button1.png" />
     <Content Include="Resources\Icon-DNA.ico" />
   </ItemGroup>
   <ItemGroup>

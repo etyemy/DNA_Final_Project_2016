@@ -14,21 +14,21 @@ namespace DNA_Part_2
 {
     class RefSNP
     {
-        public string chromozomeNum;
-        public string chromPosition;
-        public string referenceNucleotide;
-        public string varientNucleotide;
-        public string rsId;
-        public string clinicalSignificance;
-        public string populationDiversity;
-        public string maf;
-        public string chromSampleCount;
-        public string alleles;
-        public string allelesPerc;
+        private string chromozomeNum;
+        private string chromPosition;
+        private string referenceNucleotide;
+        private string varientNucleotide;
+        private string rsId;
+        private string clinicalSignificance;
+        private string populationDiversity;
+        private string maf;
+        private string chromSampleCount;
+        private string alleles;
+        private string allelesPerc;
+
         WebBrowser webBrowser1;
         int pageCounter1 = 0;//addition
         Boolean isStartup;//addition
-        Boolean isRsNumFound;
 
 
         public RefSNP(string chrom, string pos, string refNucleo, string varNucleo)
@@ -40,6 +40,18 @@ namespace DNA_Part_2
             this.rsId = "";
             runWebPageSearch();
             runNcbiSearch();
+            if (chromSampleCount == null)
+            {
+                this.chromSampleCount = "N/A";
+            }
+            if (allelesPerc == null)
+            {
+                this.allelesPerc = "N/A";
+            }
+            if (populationDiversity == null)
+            {
+                this.populationDiversity = "N/A";
+            }
             webBrowser1.Stop();
 
         }
@@ -49,10 +61,6 @@ namespace DNA_Part_2
             return this.rsId;
         }
 
-        public Boolean IsRsNumFound()
-        {
-            return this.isRsNumFound;
-        }
         public void runWebPageSearch()
         {
             isStartup = true;
@@ -67,10 +75,9 @@ namespace DNA_Part_2
             try
             {
                 String ncbiUrl = "http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?rs=" + this.rsId.Substring(2);
-                webBrowser1.DocumentCompleted += webBrowser1_DocumentCompleted;//ADD DOCUMENT COMPLETED EVENT LISTINER
-
+                //webBrowser1.DocumentCompleted += webBrowser1_DocumentCompleted;//ADD DOCUMENT COMPLETED EVENT LISTINER   - REMOVED
                 webBrowser1.Navigate(ncbiUrl);
-                waitReadyState();
+                waitReadyState(); //REMOVED
                 String ncbiHtml = webBrowser1.DocumentText.ToString();
                 HtmlElement el = webBrowser1.Document.GetElementById("Allele").GetElementsByTagName("td")[11];
                 this.clinicalSignificance = el.InnerText;
@@ -120,12 +127,6 @@ namespace DNA_Part_2
 
         }
 
-
-        public void readHtml()
-        {
-
-        }
-
         public void waitReadyState()
         {
             while (webBrowser1.ReadyState != WebBrowserReadyState.Complete)
@@ -144,7 +145,6 @@ namespace DNA_Part_2
             }
         }
 
-
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
 
@@ -154,6 +154,7 @@ namespace DNA_Part_2
             if ((this.chromozomeNum != "") && (this.chromPosition != "") && isStartup)
             {
                 loadKaviarJsonPage(this.webBrowser1);
+                System.Threading.Thread.Sleep(5000);//ADDED
             }
             if (pageCounter1 == 2)
             {
@@ -165,16 +166,17 @@ namespace DNA_Part_2
         private void loadKaviarJsonPage(WebBrowser webBrowser)
         {
             webBrowser.DocumentCompleted += webBrowser1_DocumentCompleted;//ADD DOCUMENT COMPLETED EVENT LISTINER
+            waitReadyState();//added
             webBrowser.Document.GetElementById("frz").SetAttribute("value", "hg19");
             webBrowser.Document.GetElementById("chr").SetAttribute("value", this.chromozomeNum);
             webBrowser.Document.GetElementById("pos").SetAttribute("value", this.chromPosition);
             webBrowser.Document.GetElementById("format").SetAttribute("value", "json");
-            waitReadyState();
+            //waitReadyState();
             clickSubmit(webBrowser);
             Application.DoEvents();
-            System.Threading.Thread.Sleep(1000);
-            waitReadyState(webBrowser);
-            String browserContentsJson = webBrowser1.Document.Body.InnerText;
+            System.Threading.Thread.Sleep(5000);//re added
+            //waitReadyState(webBrowser);
+            //String browserContentsJson = webBrowser1.Document.Body.InnerText;
             isStartup = false;
         }
 
@@ -188,7 +190,7 @@ namespace DNA_Part_2
                 if (el.GetAttribute("type").Equals("submit"))
                 {
                     el.InvokeMember("Click");
-
+                    //waitReadyState();//added
                 }
             }
         }
@@ -250,6 +252,71 @@ namespace DNA_Part_2
             isStartup = false;
         }
 
+        public string ChromozomeNum
+        {
+            get { return chromozomeNum; }
+            set { chromozomeNum = value; }
+        }
+
+        public string ChromPosition
+        {
+            get { return chromPosition; }
+            set { chromPosition = value; }
+        }
+
+        public string ReferenceNucleotide
+        {
+            get { return referenceNucleotide; }
+            set { referenceNucleotide = value; }
+        }
+
+        public string VarientNucleotide
+        {
+            get { return varientNucleotide; }
+            set { varientNucleotide = value; }
+        }
+
+        public string RsId
+        {
+            get { return rsId; }
+            set { rsId = value; }
+        }
+
+        public string ClinicalSignificance
+        {
+            get { return clinicalSignificance; }
+            set { clinicalSignificance = value; }
+        }
+
+        public string PopulationDiversity
+        {
+            get { return populationDiversity; }
+            set { populationDiversity = value; }
+        }
+
+        public string Maf
+        {
+            get { return maf; }
+            set { maf = value; }
+        }
+
+        public string ChromSampleCount
+        {
+            get { return chromSampleCount; }
+            set { chromSampleCount = value; }
+        }
+
+        public string Alleles
+        {
+            get { return alleles; }
+            set { alleles = value; }
+        }
+
+        public string AllelesPerc
+        {
+            get { return allelesPerc; }
+            set { allelesPerc = value; }
+        }
 
 
     }

@@ -63,6 +63,26 @@ namespace FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Analyze_button {
+            get {
+                object obj = ResourceManager.GetObject("Analyze button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Analyze_button1 {
+            get {
+                object obj = ResourceManager.GetObject("Analyze button1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AutoAnalyze2_0_bot_banner {
             get {
                 object obj = ResourceManager.GetObject("AutoAnalyze2.0_bot_banner", resourceCulture);
@@ -76,6 +96,16 @@ namespace FinalProject.Properties {
         internal static System.Drawing.Bitmap AutoAnalyze2_0_bot_bannerTop {
             get {
                 object obj = ResourceManager.GetObject("AutoAnalyze2.0_bot_bannerTop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap banner {
+            get {
+                object obj = ResourceManager.GetObject("banner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +133,49 @@ namespace FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dna_logo_digital_intelligence {
+            get {
+                object obj = ResourceManager.GetObject("dna-logo-digital-intelligence", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dna_science_free_wallpaper {
             get {
                 object obj = ResourceManager.GetObject("dna-science-free_wallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dna_science_free_wallpaper1 {
+            get {
+                object obj = ResourceManager.GetObject("dna-science-free_wallpaper1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainFormWallpaper {
+            get {
+                object obj = ResourceManager.GetObject("MainFormWallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NameLogoSmall {
+            get {
+                object obj = ResourceManager.GetObject("NameLogoSmall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +196,26 @@ namespace FinalProject.Properties {
         internal static System.Drawing.Bitmap SplashScreen1 {
             get {
                 object obj = ResourceManager.GetObject("SplashScreen1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SS2 {
+            get {
+                object obj = ResourceManager.GetObject("SS2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SS21 {
+            get {
+                object obj = ResourceManager.GetObject("SS21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

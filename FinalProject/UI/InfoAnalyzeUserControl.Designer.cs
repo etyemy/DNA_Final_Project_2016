@@ -43,7 +43,8 @@
             // progressBarLabel
             // 
             this.progressBarLabel.AutoSize = true;
-            this.progressBarLabel.Location = new System.Drawing.Point(268, 3);
+            this.progressBarLabel.BackColor = System.Drawing.Color.LightCyan;
+            this.progressBarLabel.Location = new System.Drawing.Point(278, 8);
             this.progressBarLabel.Name = "progressBarLabel";
             this.progressBarLabel.Size = new System.Drawing.Size(43, 13);
             this.progressBarLabel.TabIndex = 52;
@@ -52,11 +53,12 @@
             // 
             // analyzeButton
             // 
-            this.analyzeButton.Location = new System.Drawing.Point(204, 29);
+            this.analyzeButton.BackgroundImage = global::FinalProject.Properties.Resources.Analyze_button1;
+            this.analyzeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.analyzeButton.Location = new System.Drawing.Point(204, 27);
             this.analyzeButton.Name = "analyzeButton";
-            this.analyzeButton.Size = new System.Drawing.Size(61, 23);
+            this.analyzeButton.Size = new System.Drawing.Size(61, 28);
             this.analyzeButton.TabIndex = 48;
-            this.analyzeButton.Text = "Analyze";
             this.analyzeButton.UseVisualStyleBackColor = true;
             this.analyzeButton.Click += new System.EventHandler(this.analyzeButton_Click);
             // 
@@ -119,7 +121,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackgroundImage = global::FinalProject.Properties.Resources.banner;
             this.Controls.Add(this.progressBarLabel);
             this.Controls.Add(this.analyzeButton);
             this.Controls.Add(this.Xls2Button);

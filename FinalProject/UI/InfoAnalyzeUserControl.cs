@@ -157,10 +157,7 @@ namespace FinalProject.UI
 
         //added
 
-        public void reportProgressToUserControl(int progress)
-        {
-            _analyzeBackgroundWorker.ReportProgress(progress); ;
-        }
+       
         //Report analyze progress.
         private void analyzeBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {

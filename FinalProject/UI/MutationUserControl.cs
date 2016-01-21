@@ -96,12 +96,26 @@ namespace FinalProject.UI
                     tempRow.Cells[13].Value = m.NumOfShows;
 
                     refSnp = new RefSNP(m.Chrom.Substring(3), m.Position.ToString(), m.Ref.ToString(), m.Var.ToString());//added
-                    tempRow.Cells[15].Value = refSnp.rsId;//added
-                    tempRow.Cells[16].Value = refSnp.clinicalSignificance;//added
-                    tempRow.Cells[17].Value = refSnp.maf;//added
-                    tempRow.Cells[18].Value = refSnp.chromSampleCount;
-                    tempRow.Cells[19].Value = refSnp.alleles;
-                    tempRow.Cells[20].Value = refSnp.allelesPerc;
+
+                    if (!refSnp.RsId.Equals(""))
+                    {
+                        tempRow.Cells[15].Value = refSnp.RsId;//added
+                        tempRow.Cells[16].Value = refSnp.ClinicalSignificance;//added
+                        tempRow.Cells[17].Value = refSnp.Maf;//added
+                        tempRow.Cells[18].Value = refSnp.ChromSampleCount;
+                        tempRow.Cells[19].Value = refSnp.Alleles;
+                        tempRow.Cells[20].Value = refSnp.AllelesPerc; 
+                    }
+                    else
+                    {
+
+                        tempRow.Cells[15].Value = "No known variants";//refSnp.rsId;//added
+                        tempRow.Cells[16].Value = "-----";//refSnp.clinicalSignificance;//added
+                        tempRow.Cells[17].Value = "-----";//refSnp.maf;//added
+                        tempRow.Cells[18].Value = "-----";//refSnp.chromSampleCount;
+                        tempRow.Cells[19].Value = "-----";//refSnp.alleles;
+                        tempRow.Cells[20].Value = "-----";//refSnp.allelesPerc; 
+                    }
 
                     try
                     {
@@ -112,33 +126,34 @@ namespace FinalProject.UI
                         if (!m.CosmicName.Equals("-----"))
                             tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#90EE90");//#ABCDEF
 
-                        
-                        if (m.isCodingInControlArea())//checks if chromosome position is in control 10 base area. which means that the position the Nucleotide is in a no coding area but is 10 or less positions from any exon in the gene
+
+                        if ( m.VarCodon.Equals("No Coding"))
                         {
-                            tempRow.Cells[6].Value = "No Coding - Control Area 10 Base";
-                            tempRow.Cells[7].Value = "No Coding - Control Area 10 Base";
-                            tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");
+                            if (m.isCodingInControlArea())//checks if chromosome position is in control 10 base area. which means that the position the Nucleotide is in a no coding area but is 10 or less positions from any exon in the gene
+                            {
+                                tempRow.Cells[6].Value = "No Coding - Control Area 10 Base";
+                                tempRow.Cells[7].Value = "No Coding - Control Area 10 Base";
+                                tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");
+                            } 
                         }
 
 
-                        Double d1 = Convert.ToDouble(refSnp.allelesPerc.Substring(0, 4)) ;//checks if percentage is below 1%
-
-                        if ( d1== 0.99 || d1 == 0.01)
+                        if ((refSnp.AllelesPerc!=null)&&(!refSnp.AllelesPerc.Equals("N/A")))//checks percentage
                         {
-                            tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");
+                            Double d1 = Convert.ToDouble(refSnp.AllelesPerc.Substring(0, 4));//checks if percentage is below 1%
+
+                            if (d1 == 0.99 || d1 == 0.01)
+                            {
+                                tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");
+                            } 
                         }
                         mutationDataGridView.Rows.Add(tempRow);
                         mutationDataGridView.PerformLayout();
-                        
-                        //progress bar issues
-                        //_mainForm.progressBarCounter++;
-                        //InfoAnalyzeUserControl uc = _mainForm.getInfoAnalyzerfromMainForm();
-                        //uc.reportProgressToUserControl(_mainForm.progressBarCounter);
-                        
                     }
                     catch (Exception)
                     {
-                        //GeneralMethods.showErrorMessageBox("Something Went Wrong, Please try Again");
+                        String errorMsg = "Something Went Wrong, failed to analayze " + m.ChromNum + " " + m.Position;
+                        GeneralMethods.showErrorMessageBox(errorMsg);
                     }
                                             
                 }
