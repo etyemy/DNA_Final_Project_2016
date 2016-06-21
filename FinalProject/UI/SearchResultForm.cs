@@ -40,6 +40,8 @@ namespace FinalProject.UI
                 _mainForm.MutationUC.clearAll();
                 _mainForm.PatientUC.loadMutationDetails(_patientList[listView1.SelectedIndices[0]]);
                 _mainForm.Enabled = true;
+                _mainForm.PatientUC.updateRelativeTable();
+                _mainForm.PatientUC.updateTumorTable();
                 this.Close();
             }
             else

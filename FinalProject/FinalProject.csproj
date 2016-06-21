@@ -140,6 +140,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -159,6 +160,16 @@
     <Compile Include="GeneralMethods.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="RefSNP.cs" />
+    <Compile Include="RelativesTable_SQL_Express.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RelativesTable_SQL_Express.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="tumors_DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tumors_DB.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UI\ArticlesUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -282,6 +293,7 @@
     <EmbeddedResource Include="UI\SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="FinalProject_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -293,6 +305,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RelativesTable_SQL_Express.xsc">
+      <DependentUpon>RelativesTable_SQL_Express.xsd</DependentUpon>
+    </None>
+    <None Include="RelativesTable_SQL_Express.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RelativesTable_SQL_Express.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RelativesTable_SQL_Express.xss">
+      <DependentUpon>RelativesTable_SQL_Express.xsd</DependentUpon>
+    </None>
+    <None Include="tumors_DB.xsc">
+      <DependentUpon>tumors_DB.xsd</DependentUpon>
+    </None>
+    <None Include="tumors_DB.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tumors_DB.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tumors_DB.xss">
+      <DependentUpon>tumors_DB.xsd</DependentUpon>
+    </None>
     <None Include="מדריך משתמש.pdf" />
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +341,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\logo_cosmic.png" />
+    <None Include="Resources\PGM Analyzer splashScreen.png" />
+    <None Include="Resources\poweredBy.png" />
+    <None Include="Resources\topbanner.png" />
+    <None Include="Resources\NewSplash2.png" />
+    <None Include="Resources\octahedron-dna-molecule-structure-rotating-animation-string-52898497.jpg" />
+    <None Include="Resources\Mutation grid banner.jpg" />
+    <None Include="Resources\NewSplash.png" />
     <None Include="Resources\SS21.png" />
     <None Include="Resources\SS2.png" />
     <None Include="Resources\NameLogoSmall.png" />
@@ -324,6 +366,12 @@
     <None Include="Resources\banner.jpg" />
     <None Include="Resources\Analyze button.png" />
     <None Include="Resources\Analyze button1.png" />
+    <None Include="Resources\add tumor.png" />
+    <None Include="Resources\banner4.jpg" />
+    <None Include="Resources\dna_banner.png" />
+    <None Include="Resources\DNA-Lab-Small.jpg" />
+    <None Include="Resources\genetics-clipart-patients.png" />
+    <None Include="Resources\cosmic.png" />
     <Content Include="Resources\Icon-DNA.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Net;
 
 namespace FinalProject.UI
 {
@@ -93,6 +94,16 @@ namespace FinalProject.UI
         private void analyzeButton_Click(object sender, EventArgs e)
         {
             Boolean startAnalyze = false;
+            /*
+            if (!isConnectedToWeb())
+            {
+                MessageBox.Show("Internet Connections seems to be down. You will only have access to existing Patients and tests",
+    "Connectivity Warning",
+    MessageBoxButtons.OKCancel,
+    MessageBoxIcon.Warning
+    );
+            }
+             * */
             //if 2 files loaded.
             if (_xls1Path == null && _xls2Path == null)
             {
@@ -280,5 +291,31 @@ namespace FinalProject.UI
         {
 
         }
+
+        private void xls1TextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        /*
+        public bool isConnectedToWeb()
+        {
+            
+            try
+            {
+                string URL = "https://www.google.com";
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+                request.Timeout = 5000;
+                request.Credentials = CredentialCache.DefaultNetworkCredentials;
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK) return true;
+                else return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+         * */
     }
 }

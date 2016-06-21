@@ -34,7 +34,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.progressBar1.BackColor = System.Drawing.Color.Aqua;
             resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
@@ -43,7 +43,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::FinalProject.Properties.Resources.SS2;
+            this.BackgroundImage = global::FinalProject.Properties.Resources.PGM_Analyzer_splashScreen;
             this.Controls.Add(this.progressBar1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

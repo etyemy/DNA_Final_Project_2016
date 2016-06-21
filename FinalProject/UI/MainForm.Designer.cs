@@ -66,27 +66,27 @@
             this.settingMenuItem,
             this.exitMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.fileToolStripMenuItem.Text = "FILE";
             // 
             // clearAllMenuItem
             // 
             this.clearAllMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.clearAllMenuItem.Name = "clearAllMenuItem";
-            this.clearAllMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.clearAllMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearAllMenuItem.Text = "Clear All";
             this.clearAllMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // settingMenuItem
             // 
             this.settingMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.settingMenuItem.Name = "settingMenuItem";
-            this.settingMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.settingMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingMenuItem.Text = "Setting";
             this.settingMenuItem.Click += new System.EventHandler(this.settingToolStripMenuItem_Click);
             // 
@@ -94,7 +94,7 @@
             // 
             this.exitMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -106,8 +106,8 @@
             this.xlsxMutationMenuItem,
             this.xMLWithGermlineDetailsToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.exportToolStripMenuItem.Text = "EXPORT";
             // 
             // docxWithDetailsMenuItem
             // 
@@ -140,14 +140,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.aboutToolStripMenuItem.Text = "ABOUT";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1270, 662);
             this.Controls.Add(this._menuStrip);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -157,7 +157,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AutoAnalyze v2.0";
+            this.Text = "iON Analyzer v2.0";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this._menuStrip.ResumeLayout(false);
             this._menuStrip.PerformLayout();

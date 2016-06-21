@@ -51,8 +51,8 @@ namespace FinalProject.UI
             patientUserControl.Left = 5;
 
             infoAnalyzeUserControl.Top = 20;
-            articlesUserControl.Top = 280;
-            patientUserControl.Top = 465;
+            articlesUserControl.Top = 295;//280
+            patientUserControl.Top = 455;//465
             mutationUserControl.Top = 80;
         }
         
@@ -171,11 +171,16 @@ namespace FinalProject.UI
 
         private void xMLWithGermlineDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (_currPatient == null || _mutationList == null)
+            {
+                MessageBox.Show("No Details To Export");
+            }
             DataTable dt = GetDataTableFromDGV(mutationUserControl.getDGV());
             XLSExportHandler handler = new XLSExportHandler();
             DataSet dS = new DataSet();
             dS.Tables.Add(dt);
             handler.saveXLS(patientUserControl.TestName, dS);
+            MessageBox.Show("Export Completed");
 
         }
         private DataTable GetDataTableFromDGV(DataGridView dgv)

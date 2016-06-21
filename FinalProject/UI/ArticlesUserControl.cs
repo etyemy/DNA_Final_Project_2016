@@ -82,15 +82,16 @@ namespace FinalProject.UI
             switch (e.ProgressPercentage)
             {
                 case 0:
-                    _cosmicStatusText.Text = "Trying To Log In.....";
+                    _cosmicStatusText.Text = "Trying To Log In";
                     _cosmicStatusText.ForeColor = Color.Blue;
                     break;
                 case 1:
-                    _cosmicStatusText.Text = "Successful";
+                    _cosmicStatusText.Text = "Connected";
                     _cosmicStatusText.ForeColor = Color.Green;
                     break;
                 case 2:
-                    _cosmicStatusText.Text = "Failed to log in. Check cosmic email and password in settings and/or check internet connection";
+                    _cosmicStatusText.Text = "Failed to log in";
+                    MessageBox.Show("Failed to log in. Check cosmic email and password in settings and/or check internet connection");
                     _cosmicStatusText.ForeColor = Color.Red;
                     break;
                 default:
@@ -120,6 +121,16 @@ namespace FinalProject.UI
             getArticlesButton.Enabled = false;
             _cosmicStatusText.Text = "Disconnected";
             _cosmicStatusText.ForeColor = Color.Red;
+        }
+
+        private void ArticlesUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _cosmicStatusText_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

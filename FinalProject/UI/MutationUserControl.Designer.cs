@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mutationDataGridView = new System.Windows.Forms.DataGridView();
             this.chromosomeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,16 +62,16 @@
             this.mutationDataGridView.AllowUserToOrderColumns = true;
             this.mutationDataGridView.AllowUserToResizeRows = false;
             this.mutationDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.mutationDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.mutationDataGridView.BackgroundColor = System.Drawing.Color.Teal;
             this.mutationDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mutationDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mutationDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mutationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.mutationDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chromosomeCol,
@@ -95,13 +95,13 @@
             this.chromSampleCount,
             this.alleles,
             this.allelesPercenage});
-            this.mutationDataGridView.Location = new System.Drawing.Point(3, 0);
+            this.mutationDataGridView.Location = new System.Drawing.Point(0, 0);
             this.mutationDataGridView.Name = "mutationDataGridView";
             this.mutationDataGridView.ReadOnly = true;
             this.mutationDataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.mutationDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.mutationDataGridView.Size = new System.Drawing.Size(1245, 188);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.mutationDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.mutationDataGridView.Size = new System.Drawing.Size(1245, 211);
             this.mutationDataGridView.TabIndex = 0;
             this.mutationDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mutationDataGridView_CellContentClick);
             // 
@@ -135,7 +135,7 @@
             this.refCol.HeaderText = "Ref";
             this.refCol.Name = "refCol";
             this.refCol.ReadOnly = true;
-            this.refCol.Width = 60;
+            this.refCol.Width = 30;
             // 
             // varCol
             // 
@@ -143,7 +143,7 @@
             this.varCol.HeaderText = "Var";
             this.varCol.Name = "varCol";
             this.varCol.ReadOnly = true;
-            this.varCol.Width = 59;
+            this.varCol.Width = 30;
             // 
             // strandCol
             // 
@@ -151,7 +151,7 @@
             this.strandCol.HeaderText = "Strand";
             this.strandCol.Name = "strandCol";
             this.strandCol.ReadOnly = true;
-            this.strandCol.Width = 59;
+            this.strandCol.Width = 50;
             // 
             // refCodonCol
             // 
@@ -216,7 +216,7 @@
             this.numOfShowsCol.MinimumWidth = 20;
             this.numOfShowsCol.Name = "numOfShowsCol";
             this.numOfShowsCol.ReadOnly = true;
-            this.numOfShowsCol.Width = 59;
+            this.numOfShowsCol.Width = 50;
             // 
             // historyCol
             // 
@@ -225,7 +225,7 @@
             this.historyCol.Name = "historyCol";
             this.historyCol.ReadOnly = true;
             this.historyCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.historyCol.Width = 59;
+            this.historyCol.Width = 50;
             // 
             // refSNP
             // 
@@ -280,10 +280,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.mutationDataGridView);
             this.Name = "MutationUserControl";
-            this.Size = new System.Drawing.Size(1251, 192);
+            this.Size = new System.Drawing.Size(1245, 213);
             ((System.ComponentModel.ISupportInitialize)(this.mutationDataGridView)).EndInit();
             this.ResumeLayout(false);
 

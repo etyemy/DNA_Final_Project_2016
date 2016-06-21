@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+
 namespace FinalProject
 {
     /*
@@ -14,8 +15,11 @@ namespace FinalProject
      */
     public class LocalDbDAL
     {
-        //Connection string for debbuging mode
-        static string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\etyem_000\Desktop\College_Of__Engineering\Final Project - DNA\code\FinalProject-master\FinalProject-master\FinalProject\Database.mdf;Integrated Security=True";
+        //Connection string for debbuging mode using visual studio database.mdf local database
+        //static string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\etyem_000\Desktop\College_Of__Engineering\Final Project - DNA\code\FinalProject-master\FinalProject-master\FinalProject\Database.mdf;Integrated Security=True";
+
+        //Connection string for debbuging mode using sql server
+        static string connectionString = @"Data Source=ETYE-PC\SQLEXPRESS;Initial Catalog=6B6BBD80FD1798D29B9948E7A24ECA45_TYE MYER - FINAL PROJECT 2016\FINALPROJECT-MASTER\FINALPROJECT-MASTER\FINALPROJECT\DATABASE.MDF;Integrated Security=True";
 
         //Connection string for publish
         //static string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
@@ -55,6 +59,39 @@ namespace FinalProject
         }
 
         //Add new gene to database.
+        public static List<String> getRefSnp(string chrom, string position, string refNuc, string varNuc)
+        {
+            List<String> toReturn = null;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    cmd.Parameters.Add("@chrom_num", SqlDbType.NChar).Value = chrom;
+                    cmd.Parameters.Add("@chrom_position", SqlDbType.NChar).Value = position;
+                    cmd.Parameters.Add("@ref_nuc", SqlDbType.NChar).Value = refNuc;
+                    cmd.Parameters.Add("@var_nuc", SqlDbType.NChar).Value = varNuc;
+                    cmd.CommandText = "SELECT * FROM RefSnpDB WHERE chrom_num=@chrom_num AND chrom_position=@chrom_position AND ref_nuc=@ref_nuc AND var_nuc=@var_nuc";
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        toReturn = new List<string>();
+                        while (rdr.Read())
+                        {
+                            for (int i = 0; i < 11; i++)
+                            {
+                                toReturn.Add(rdr.GetString(i).Trim());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return toReturn;
+        }
         public static void addGene(string name, string chrom, char strand, string exonStarts, string exonEnds)
         {
             try
@@ -471,6 +508,182 @@ namespace FinalProject
                 throw;
             }
             return toReturn;
+        }
+
+        //Add refSNP to the DB
+        public static void addRefSnp(string num,string pos,string refNuc,string varNuc,string rsId,string clinSig,string popDiv,string maf,string chrSamCnt,string allele,string allelePerc)
+        {
+            if (rsId.Equals("") || rsId == null)
+            {
+                return;
+            }
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    
+                   
+                    
+                    cmd.Parameters.Add("@chrom_num", SqlDbType.NChar).Value = num;
+                    cmd.Parameters.Add("@chrom_position", SqlDbType.NChar).Value = pos;
+                    cmd.Parameters.Add("@ref_nuc", SqlDbType.NChar).Value = refNuc;
+                    cmd.Parameters.Add("@var_nuc", SqlDbType.NChar).Value = varNuc;
+                    cmd.Parameters.Add("@rsid", SqlDbType.NChar).Value = rsId;
+                    cmd.Parameters.Add("@clinical_significance", SqlDbType.NChar).Value = clinSig;
+                    cmd.Parameters.Add("@population_diversity", SqlDbType.NChar).Value = popDiv;
+                    cmd.Parameters.Add("@maf", SqlDbType.Text).Value = maf;
+                    cmd.Parameters.Add("@chrom_sample_count", SqlDbType.NChar).Value = chrSamCnt;
+                    cmd.Parameters.Add("@alleles", SqlDbType.NChar).Value = allele;
+                    cmd.Parameters.Add("@alleles_percentage", SqlDbType.NChar).Value = allelePerc;
+
+
+                    cmd.CommandText = "INSERT INTO RefSnpDB VALUES (@chrom_num,@chrom_position,@ref_nuc,@var_nuc,@rsid,@clinical_significance,@population_diversity,@maf,@chrom_sample_count,@alleles,@alleles_percentage)";
+                    
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+             
+        }
+        public static void addTumor(string patientId, string tumorSite, string pathNum, string bloodTestNum)
+        {
+            String tumorId;
+            if (pathNum == "" && bloodTestNum == "")
+            {
+                return;
+            }
+            else if (pathNum != "")
+            {
+                tumorId = "P_" + pathNum;
+            }
+            else
+            {
+                tumorId = "B_" + bloodTestNum;
+            }
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    cmd.Parameters.Add("@tumorId", SqlDbType.NChar).Value = tumorId;
+                    cmd.Parameters.Add("@patientId", SqlDbType.NChar).Value = patientId;
+                    cmd.Parameters.Add("@tumorSite", SqlDbType.NChar).Value = tumorSite;
+                    cmd.Parameters.Add("@pathNum", SqlDbType.Text).Value = pathNum;
+                    cmd.Parameters.Add("@bloodTestNum", SqlDbType.Text).Value = bloodTestNum;
+                    cmd.CommandText = "INSERT into Tumors VALUES (@tumorId,@patientId,@tumorSite,@pathNum,@bloodTestNum)";
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static void addRelative(string relation,string id,string date,string location,string about)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    cmd.Parameters.Add("@Relation", SqlDbType.NChar).Value = relation;
+                    cmd.Parameters.Add("@patient_id", SqlDbType.NChar).Value = id;
+                    cmd.Parameters.Add("@date_of_illness", SqlDbType.NChar).Value = date;
+                    cmd.Parameters.Add("@location_of_illness", SqlDbType.Text).Value = location;
+                    cmd.Parameters.Add("@about", SqlDbType.Text).Value = about;
+                    cmd.CommandText = "INSERT into Relatives VALUES (@patient_id,@Relation,@date_of_illness,@location_of_illness,@about)";
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static void deleteRelative(string relation,string id,string date,string location,string about){
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    cmd.CommandText = "DELETE FROM Relatives WHERE patient_id=@patient_id AND Relation=@Relation AND date_of_illness=@date_of_illness AND location_of_illness=@location_of_illness AND about=@about";
+                    cmd.Parameters.Add("@Relation", SqlDbType.NChar).Value = relation;
+                    cmd.Parameters.Add("@patient_id", SqlDbType.NChar).Value = id;
+                    cmd.Parameters.Add("@date_of_illness", SqlDbType.NChar).Value = date;
+                    cmd.Parameters.Add("@location_of_illness", SqlDbType.NChar).Value = location;
+                    cmd.Parameters.Add("@about", SqlDbType.NChar).Value = about;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static void deleteTumor(string patientId,string tumorSite, string pathNum, string bloodTestNum)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    //cmd.CommandText = "DELETE FROM Tumors WHERE patient_id=@patient_id AND Relation=@Relation AND date_of_illness=@date_of_illness AND location_of_illness=@location_of_illness AND about=@about";
+                    cmd.Parameters.Add("@patientId", SqlDbType.NChar).Value = patientId;
+                    cmd.Parameters.Add("@tumorSite", SqlDbType.NChar).Value = tumorSite;
+                    cmd.Parameters.Add("@pathNum", SqlDbType.NChar).Value = pathNum;
+                    cmd.Parameters.Add("@bloodTestNum", SqlDbType.NChar).Value = bloodTestNum;
+                    cmd.CommandText = "DELETE FROM Tumors WHERE patientId=@patientId AND tumorSite=@tumorSite AND pathNum=@pathNum AND bloodTestNum=@bloodTestNum";
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static bool isRefSnpExists(string num,string pos,string varNuc,string refNuc)
+        {
+            bool toReturn = false;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    cmd.Parameters.Add("@chrom_num", SqlDbType.NChar).Value = num;
+                    cmd.Parameters.Add("@chrom_position", SqlDbType.NChar).Value = pos;
+                    cmd.Parameters.Add("@ref_nuc", SqlDbType.NChar).Value = refNuc;
+                    cmd.Parameters.Add("@var_nuc", SqlDbType.NChar).Value = varNuc;
+                    cmd.CommandText = "SELECT * FROM RefSnpDB WHERE chrom_num=@chrom_num AND chrom_position=@chrom_position AND ref_nuc=@ref_nuc AND var_nuc=@var_nuc";
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        if (rdr.Read())
+                        {
+                            toReturn = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return toReturn;
+        }
+        public static string getConnectionString()
+        {
+            return connectionString;
         }
     }
 }

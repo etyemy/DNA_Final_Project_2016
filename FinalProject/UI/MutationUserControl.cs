@@ -95,7 +95,18 @@ namespace FinalProject.UI
                     tempRow.Cells[12].Value = m.CosmicName;
                     tempRow.Cells[13].Value = m.NumOfShows;
 
-                    refSnp = new RefSNP(m.Chrom.Substring(3), m.Position.ToString(), m.Ref.ToString(), m.Var.ToString());//added
+
+
+                    //here we start the process
+                    if (!LocalDbDAL.isRefSnpExists(m.Chrom.Substring(3), m.Position.ToString(), m.Var.ToString(), m.Ref.ToString()))
+                    {
+                        refSnp = new RefSNP(m.Chrom.Substring(3), m.Position.ToString(), m.Ref.ToString(), m.Var.ToString());//added
+                    }
+                    else
+                    {
+                        List<String> tempRefList = LocalDbDAL.getRefSnp(m.Chrom.Substring(3), m.Position.ToString(), m.Ref.ToString(), m.Var.ToString());
+                        refSnp = new RefSNP(tempRefList);
+                    }
 
                     if (!refSnp.RsId.Equals(""))
                     {
@@ -133,6 +144,8 @@ namespace FinalProject.UI
                             {
                                 tempRow.Cells[6].Value = "No Coding - Control Area 10 Base";
                                 tempRow.Cells[7].Value = "No Coding - Control Area 10 Base";
+                                tempRow.Cells[7].Style.BackColor = Color.Red;
+                                tempRow.Cells[7].Style.ForeColor= Color.White;
                                 tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");
                             } 
                         }
@@ -145,15 +158,35 @@ namespace FinalProject.UI
                             if (d1 == 0.99 || d1 == 0.01)
                             {
                                 tempRow.DefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#00CED1");
+                                tempRow.Cells[20].Style.BackColor = Color.Red;
+                                tempRow.Cells[20].Style.ForeColor= Color.White;
+
+
                             } 
                         }
                         mutationDataGridView.Rows.Add(tempRow);
                         mutationDataGridView.PerformLayout();
+
+
                     }
                     catch (Exception)
                     {
                         String errorMsg = "Something Went Wrong, failed to analayze " + m.ChromNum + " " + m.Position;
                         GeneralMethods.showErrorMessageBox(errorMsg);
+                    }
+
+                    try
+                    {
+                        
+                        if (!LocalDbDAL.isRefSnpExists(refSnp.ChromozomeNum, refSnp.ChromPosition,refSnp.VarientNucleotide, refSnp.ReferenceNucleotide ))
+                        {
+                                LocalDbDAL.addRefSnp(refSnp.ChromozomeNum, refSnp.ChromPosition, refSnp.ReferenceNucleotide, refSnp.VarientNucleotide, refSnp.RsId, refSnp.ClinicalSignificance, refSnp.PopulationDiversity, refSnp.Maf, refSnp.ChromSampleCount, refSnp.Alleles, refSnp.AllelesPerc);
+                        }    
+
+                    }
+                    catch (Exception)
+                    {
+                        throw;
                     }
                                             
                 }

@@ -56,6 +56,20 @@ namespace DNA_Part_2
 
         }
 
+        public RefSNP(List<String> refList)
+        {
+            this.chromozomeNum = refList[0];
+            this.chromPosition = refList[1];
+            this.referenceNucleotide = refList[2];
+            this.varientNucleotide = refList[3];
+            this.rsId = refList[4];
+            this.clinicalSignificance = refList[5];
+            this.populationDiversity = refList[6];
+            this.maf = refList[7];
+            this.chromSampleCount = refList[8];
+            this.alleles = refList[9];
+            this.allelesPerc= refList[10];
+        }
         public string getRsId()
         {
             return this.rsId;
@@ -72,8 +86,11 @@ namespace DNA_Part_2
 
         public void runNcbiSearch()
         {
+            if ((this.rsId == null) || (this.rsId.Equals("")))
+                return;
             try
             {
+                
                 String ncbiUrl = "http://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?rs=" + this.rsId.Substring(2);
                 //webBrowser1.DocumentCompleted += webBrowser1_DocumentCompleted;//ADD DOCUMENT COMPLETED EVENT LISTINER   - REMOVED
                 webBrowser1.Navigate(ncbiUrl);
@@ -95,7 +112,7 @@ namespace DNA_Part_2
                     i++;
                     try
                     {
-                        if (row.InnerText.Equals("ExAc_Aggregated_Populations"))
+                        if ((row.InnerText!=null) && (row.InnerText.Equals("ExAc_Aggregated_Populations")))
                         {
                             j = i + 4;
                             this.chromSampleCount = webBrowser1.Document.All[i + 2].InnerText;
@@ -115,7 +132,7 @@ namespace DNA_Part_2
                     }
                     catch (NullReferenceException e)
                     {
-
+                        return;
                     }
 
                 }
@@ -123,6 +140,7 @@ namespace DNA_Part_2
             catch (ArgumentOutOfRangeException)
             {
                 //here we find that get RS ID failed
+                return;
             }
 
         }
@@ -224,6 +242,14 @@ namespace DNA_Part_2
                         j++;
                         try
                         {
+                            if (kaviarTempVar == null)
+                            {
+                                break;
+                            }
+                            if (kaviarTempVar.Length > 1)
+                            {
+                                break;
+                            }
                             if (data["sites"][i]["varInfo"][j] == null)
                             {
                                 break;

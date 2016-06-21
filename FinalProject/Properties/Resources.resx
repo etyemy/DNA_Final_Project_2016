@@ -118,55 +118,115 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="NameLogoSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NameLogoSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Mutation grid banner1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mutation grid banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dbSNPLOGO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dbSNPLOGO1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dna-logo-digital-intelligence" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dna-logo-digital-intelligence.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MainFormWallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MainFormWallpaper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="banner4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\banner4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dbSNPLOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dbSNPLOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SS21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SS21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dna-science-free_wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dna-science-free_wallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SS2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SS2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WelcomeScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WelcomeScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Analyze button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Analyze button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dna-science-free_wallpaper1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dna-science-free_wallpaper1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SplashScreen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SplashScreen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AutoAnalyze2.0_bot_bannerTop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AutoAnalyze2.0_bot_bannerTop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AutoAnalyze2.0_bot_banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AutoAnalyze2.0_bot_banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dna_banner1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dna_banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SplashScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SplashScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PGM Analyzer splashScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PGM Analyzer splashScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="banner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dna-logo-digital-intelligence" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dna-logo-digital-intelligence.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SS21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SS21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topbanner1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\topbanner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="octahedron-dna-molecule-structure-rotating-animation-string-52898497" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\octahedron-dna-molecule-structure-rotating-animation-string-52898497.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SS2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SS2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_cosmic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_cosmic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DNA-Lab-Small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DNA-Lab-Small.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topbanner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\topbanner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SplashScreen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SplashScreen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainFormWallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MainFormWallpaper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewSplash2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewSplash2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add tumor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add tumor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dna-science-free_wallpaper11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dna-science-free_wallpaper1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dna-science-free_wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dna-science-free_wallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AutoAnalyze2.0_bot_banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AutoAnalyze2.0_bot_banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dna_banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dna_banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Analyze button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Analyze button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="banner1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Analyze button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Analyze button1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="genetics-clipart-patients" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\genetics-clipart-patients.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dbSNPLOGO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dbSNPLOGO1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mutation grid banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mutation grid banner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="poweredBy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\poweredBy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewSplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewSplash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AutoAnalyze2.0_bot_bannerTop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AutoAnalyze2.0_bot_bannerTop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NameLogoSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NameLogoSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dna-science-free_wallpaper1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dna-science-free_wallpaper1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WelcomeScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WelcomeScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cosmic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cosmic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
