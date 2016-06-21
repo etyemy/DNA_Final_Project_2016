@@ -1,0 +1,1 @@
+﻿INSERT INTO RefSNP(chrom_num,chrom_position,ref_nuc,var_nuc) VALUES('1','2','3','4')
