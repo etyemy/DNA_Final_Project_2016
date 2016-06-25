@@ -317,6 +317,33 @@ namespace FinalProject
             return toReturn;
         }
 
+        public static bool tumorExist(string testName)
+        {
+            bool toReturn = false;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    conn.Open();
+                    cmd.Parameters.Add("@testName", SqlDbType.NChar).Value = testName;
+                    cmd.CommandText = "SELECT * FROM Patients WHERE test_name=@testName";
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        if (rdr.Read())
+                        {
+                            toReturn = true;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return toReturn;
+        }
         //Add new patient to database.
         public static void addPatient(string testName, string id, string fName, string lName, string pathologicalNum, string runNum, string tumourSite, string diseaseLevel, string background, string prevTreatment, string currTreatment, string conclusion)
         {

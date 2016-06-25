@@ -254,9 +254,9 @@ namespace FinalProject.UI
             _idTextBox.ReadOnly = true;
             _firstNameTextBox.Text = _patient.FName;
             _lastNameTextBox.Text = _patient.LName;
-            _pathologicalNoTextBox.Text = _patient.PathoNum;
+//            _pathologicalNoTextBox.Text = _patient.PathoNum;
             _runNoTextBox.Text = _patient.RunNum;
-            _tumorSiteTextBox.Text = _patient.TumourSite;
+//            _tumorSiteTextBox.Text = _patient.TumourSite;
             _diseaseLevelTextBox.Text = _patient.DiseaseLevel;
             _backgroundTextBox.Text = _patient.Background;
             _previousTreatmentTextBox.Text = _patient.PrevTreatment;
@@ -342,6 +342,7 @@ namespace FinalProject.UI
 
         private void _relativeRelationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _familyRelationLabel.ForeColor = Color.Black;
 
         }
 
@@ -474,7 +475,7 @@ namespace FinalProject.UI
             {
                 _tumorComboBox.SelectedIndex = _tumorComboBox.FindStringExact("Yes");
                 tumorsDataGridView.Rows[0].Selected = true;
-                setTumorFieldsByRowNum(0);
+                //setTumorFieldsByRowNum(0);
             }
 
 
@@ -627,14 +628,15 @@ namespace FinalProject.UI
         {
             if (_familyHistoryComboBox.Text == "No")
             {
+                MessageBox.Show("Please select family history");
                 return;
             }
             if (_relativeRelationComboBox.Text == "")
             {
-                _familyRelationLabel.ForeColor = System.Drawing.Color.Red;
+                MessageBox.Show("Please choose family relation before saving relative");
                 return;
             }
-            if (!LocalDbDAL.patientExist(_testNameTextBox.Text))
+            if (!LocalDbDAL.patientExist(_testNameTextBox.Text) || (_idTextBox.Text == ""))
             {
                 MessageBox.Show("Please save patient before adding relative");
                 return;
@@ -672,7 +674,11 @@ namespace FinalProject.UI
         {
             if (relativeDataGridView.CurrentCell != null)
             {
-                LocalDbDAL.deleteRelative(_relativeRelationComboBox.Text, _idTextBox.Text, _dateOfIllnessDateTimePicker.Value.Date.ToString(), _locationOfIllnessTextBox.Text, _aboutTextBox.Text);
+                LocalDbDAL.deleteRelative(relativeDataGridView.Rows[relativeDataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString(),
+                _idTextBox.Text,
+               relativeDataGridView.Rows[relativeDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString(),
+               relativeDataGridView.Rows[relativeDataGridView.CurrentCell.RowIndex].Cells[3].Value.ToString(),
+               relativeDataGridView.Rows[relativeDataGridView.CurrentCell.RowIndex].Cells[4].Value.ToString());
                 updateRelativeTable();
                 
             }
@@ -704,18 +710,20 @@ namespace FinalProject.UI
         {
             if (_tumorComboBox.Text == "No")
             {
+                MessageBox.Show("Please Select Tumor");
                 return;
             }
-            if (!LocalDbDAL.patientExist(_testNameTextBox.Text))
-            {
-                MessageBox.Show("Please save patient before adding relative");
-                return;
-            }
-            if (_pathologicalNoTextBox.Text != "" && _bloodTestNumTextBox.Text != "")
+            if (_pathologicalNoTextBox.Text == "" && _bloodTestNumTextBox.Text == "")
             {
                 MessageBox.Show("Please enter either Pathological Number or Blood Test Number");
                 return;
             }
+            if (!LocalDbDAL.patientExist(_testNameTextBox.Text) || (_idTextBox.Text == ""))
+            {
+                MessageBox.Show("Please save patient before adding relative");
+                return;
+            }
+           
             if (isTumorExist(_tumorSiteTextBox.Text,_pathologicalNoTextBox.Text,_bloodTestNumTextBox.Text))
             {
                 MessageBox.Show("Tumor already exists");
@@ -731,28 +739,38 @@ namespace FinalProject.UI
             {
                 LocalDbDAL.addTumor(_idTextBox.Text,_tumorSiteTextBox.Text,_pathologicalNoTextBox.Text,_bloodTestNumTextBox.Text);
                 updateTumorTable();
+                _tumorSiteTextBox.Text = "";
+                _pathologicalNoTextBox.Text = "";
+                _bloodTestNumTextBox.Text = "";
             }
         }
 
         private void _deleteTumorButton_Click(object sender, EventArgs e)
         {
-            if (tumorsDataGridView.CurrentCell != null)
-            {
-                LocalDbDAL.deleteTumor(_idTextBox.Text,_tumorSiteTextBox.Text,_pathologicalNoTextBox.Text,_bloodTestNumTextBox.Text);
-                updateTumorTable();
-
-            }
             if (!doesPatientHaveTumors())
             {
                 _tumorComboBox.SelectedIndex = _tumorComboBox.FindStringExact("No");
+                return;
 
             }
+            string _tumorSite = tumorsDataGridView.Rows[tumorsDataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            string _pathologicalNum = tumorsDataGridView.Rows[tumorsDataGridView.CurrentCell.RowIndex].Cells[1].Value.ToString();
+            string _bloodTestNum = tumorsDataGridView.Rows[tumorsDataGridView.CurrentCell.RowIndex].Cells[2].Value.ToString();
+            if (tumorsDataGridView.CurrentCell != null)
+            {
+                LocalDbDAL.deleteTumor(_idTextBox.Text,_tumorSite,_pathologicalNum,_bloodTestNum);
+                updateTumorTable();
+                //_tumorComboBox.SelectedIndex
+
+            }
+
         }
 
         private void _tumorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (_tumorComboBox.Text == "Yes")
             {
+
                 _tumorSiteLabel.Visible = true;
                 _tumorSiteTextBox.Visible = true;
                 pathNumLinkLabel.Visible = true;
@@ -763,10 +781,13 @@ namespace FinalProject.UI
             {
                 _tumorSiteLabel.Visible = false;
                 _tumorSiteTextBox.Visible = false;
+                _tumorSiteTextBox.Text = "";
                 _pathologicalNoLabel.Visible = false;
                 _pathologicalNoTextBox.Visible = false;
+                _pathologicalNoTextBox.Text = "";
                 _bloodTestNumLabel.Visible = false;
                 _bloodTestNumTextBox.Visible = false;
+                _bloodTestNumTextBox.Text="";                
                 pathNumLinkLabel.Visible = false;
                 bloodTestNumLinkLabel.Visible = false;
             }
@@ -787,11 +808,11 @@ namespace FinalProject.UI
 
         private void tumorsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+         /*   
                 _tumorSiteTextBox.Text = tumorsDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
                 _pathologicalNoTextBox.Text = tumorsDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
                 _bloodTestNumTextBox.Text = tumorsDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-            
+            */
         }
 
         private void pathNumLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -809,6 +830,12 @@ namespace FinalProject.UI
             _bloodTestNumTextBox.Visible = true;
             _pathologicalNoLabel.Visible = false;
             _pathologicalNoTextBox.Visible = false;
+        }
+
+        private void _relativeRelationComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            _familyRelationLabel.ForeColor = Color.Black;
+
         }
     }
 }

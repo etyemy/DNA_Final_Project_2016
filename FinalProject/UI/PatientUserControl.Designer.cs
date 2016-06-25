@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.relativesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.relativesTable_SQL_Express = new FinalProject.RelativesTable_SQL_Express();
@@ -77,6 +77,8 @@
             this._relativeRelationComboBox = new System.Windows.Forms.ComboBox();
             this._familyRelationLabel = new System.Windows.Forms.Label();
             this._tumorsPanel = new System.Windows.Forms.Panel();
+            this.bloodTestNumLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.pathNumLinkLabel = new System.Windows.Forms.LinkLabel();
             this.clearTumorTextBoxes = new System.Windows.Forms.LinkLabel();
             this._tumorComboBox = new System.Windows.Forms.ComboBox();
             this._tumorsLabel = new System.Windows.Forms.Label();
@@ -110,8 +112,6 @@
             this._loadPatientButton = new System.Windows.Forms.Button();
             this.idToLoadTextBox = new System.Windows.Forms.TextBox();
             this._savePatientButton = new System.Windows.Forms.Button();
-            this.pathNumLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.bloodTestNumLinkLabel = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.relativesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relativesTable_SQL_Express)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tumorsBindingSource)).BeginInit();
@@ -249,6 +249,7 @@
             this._testNameTextBox.ForeColor = System.Drawing.SystemColors.Highlight;
             this._testNameTextBox.Location = new System.Drawing.Point(4, 38);
             this._testNameTextBox.Name = "_testNameTextBox";
+            this._testNameTextBox.ReadOnly = true;
             this._testNameTextBox.Size = new System.Drawing.Size(102, 20);
             this._testNameTextBox.TabIndex = 141;
             // 
@@ -385,18 +386,18 @@
             // relativeDataGridView
             // 
             this.relativeDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.relativeDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.relativeDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.relativeDataGridView.AutoGenerateColumns = false;
             this.relativeDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.relativeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.relativeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.relativeDataGridView.ColumnHeadersHeight = 25;
             this.relativeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.relationDataGridViewTextBoxColumn,
@@ -407,6 +408,7 @@
             this.relativeDataGridView.DataSource = this.relativesBindingSource1;
             this.relativeDataGridView.Location = new System.Drawing.Point(2, 34);
             this.relativeDataGridView.Name = "relativeDataGridView";
+            this.relativeDataGridView.ReadOnly = true;
             this.relativeDataGridView.RowHeadersVisible = false;
             this.relativeDataGridView.Size = new System.Drawing.Size(149, 137);
             this.relativeDataGridView.TabIndex = 142;
@@ -419,6 +421,7 @@
             this.relationDataGridViewTextBoxColumn.HeaderText = "Relation";
             this.relationDataGridViewTextBoxColumn.MinimumWidth = 108;
             this.relationDataGridViewTextBoxColumn.Name = "relationDataGridViewTextBoxColumn";
+            this.relationDataGridViewTextBoxColumn.ReadOnly = true;
             this.relationDataGridViewTextBoxColumn.Width = 108;
             // 
             // patientidDataGridViewTextBoxColumn
@@ -426,6 +429,7 @@
             this.patientidDataGridViewTextBoxColumn.DataPropertyName = "patient_id";
             this.patientidDataGridViewTextBoxColumn.HeaderText = "patient_id";
             this.patientidDataGridViewTextBoxColumn.Name = "patientidDataGridViewTextBoxColumn";
+            this.patientidDataGridViewTextBoxColumn.ReadOnly = true;
             this.patientidDataGridViewTextBoxColumn.Width = 78;
             // 
             // dateofillnessDataGridViewTextBoxColumn
@@ -433,6 +437,7 @@
             this.dateofillnessDataGridViewTextBoxColumn.DataPropertyName = "date_of_illness";
             this.dateofillnessDataGridViewTextBoxColumn.HeaderText = "date_of_illness";
             this.dateofillnessDataGridViewTextBoxColumn.Name = "dateofillnessDataGridViewTextBoxColumn";
+            this.dateofillnessDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateofillnessDataGridViewTextBoxColumn.Width = 102;
             // 
             // locationofillnessDataGridViewTextBoxColumn
@@ -440,6 +445,7 @@
             this.locationofillnessDataGridViewTextBoxColumn.DataPropertyName = "location_of_illness";
             this.locationofillnessDataGridViewTextBoxColumn.HeaderText = "location_of_illness";
             this.locationofillnessDataGridViewTextBoxColumn.Name = "locationofillnessDataGridViewTextBoxColumn";
+            this.locationofillnessDataGridViewTextBoxColumn.ReadOnly = true;
             this.locationofillnessDataGridViewTextBoxColumn.Width = 118;
             // 
             // aboutDataGridViewTextBoxColumn
@@ -447,6 +453,7 @@
             this.aboutDataGridViewTextBoxColumn.DataPropertyName = "about";
             this.aboutDataGridViewTextBoxColumn.HeaderText = "about";
             this.aboutDataGridViewTextBoxColumn.Name = "aboutDataGridViewTextBoxColumn";
+            this.aboutDataGridViewTextBoxColumn.ReadOnly = true;
             this.aboutDataGridViewTextBoxColumn.Width = 59;
             // 
             // _addRelativeButton
@@ -463,6 +470,7 @@
             // 
             // _familyHistoryComboBox
             // 
+            this._familyHistoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._familyHistoryComboBox.FormattingEnabled = true;
             this._familyHistoryComboBox.Location = new System.Drawing.Point(175, 17);
             this._familyHistoryComboBox.Name = "_familyHistoryComboBox";
@@ -548,6 +556,7 @@
             // 
             // _relativeRelationComboBox
             // 
+            this._relativeRelationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._relativeRelationComboBox.FormattingEnabled = true;
             this._relativeRelationComboBox.IntegralHeight = false;
             this._relativeRelationComboBox.Location = new System.Drawing.Point(160, 55);
@@ -555,6 +564,7 @@
             this._relativeRelationComboBox.Size = new System.Drawing.Size(126, 21);
             this._relativeRelationComboBox.TabIndex = 134;
             this._relativeRelationComboBox.Visible = false;
+            this._relativeRelationComboBox.SelectedIndexChanged += new System.EventHandler(this._relativeRelationComboBox_SelectedIndexChanged_1);
             // 
             // _familyRelationLabel
             // 
@@ -594,6 +604,30 @@
             this._tumorsPanel.TabIndex = 136;
             this._tumorsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // bloodTestNumLinkLabel
+            // 
+            this.bloodTestNumLinkLabel.AutoSize = true;
+            this.bloodTestNumLinkLabel.Location = new System.Drawing.Point(5, 112);
+            this.bloodTestNumLinkLabel.Name = "bloodTestNumLinkLabel";
+            this.bloodTestNumLinkLabel.Size = new System.Drawing.Size(98, 13);
+            this.bloodTestNumLinkLabel.TabIndex = 152;
+            this.bloodTestNumLinkLabel.TabStop = true;
+            this.bloodTestNumLinkLabel.Text = "Blood Test Number";
+            this.bloodTestNumLinkLabel.Visible = false;
+            this.bloodTestNumLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.bloodTestNumLinkLabel_LinkClicked);
+            // 
+            // pathNumLinkLabel
+            // 
+            this.pathNumLinkLabel.AutoSize = true;
+            this.pathNumLinkLabel.Location = new System.Drawing.Point(5, 94);
+            this.pathNumLinkLabel.Name = "pathNumLinkLabel";
+            this.pathNumLinkLabel.Size = new System.Drawing.Size(99, 13);
+            this.pathNumLinkLabel.TabIndex = 151;
+            this.pathNumLinkLabel.TabStop = true;
+            this.pathNumLinkLabel.Text = "Patholgical Number";
+            this.pathNumLinkLabel.Visible = false;
+            this.pathNumLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.pathNumLinkLabel_LinkClicked);
+            // 
             // clearTumorTextBoxes
             // 
             this.clearTumorTextBoxes.AutoSize = true;
@@ -607,6 +641,7 @@
             // 
             // _tumorComboBox
             // 
+            this._tumorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._tumorComboBox.FormattingEnabled = true;
             this._tumorComboBox.Location = new System.Drawing.Point(8, 36);
             this._tumorComboBox.Name = "_tumorComboBox";
@@ -722,18 +757,18 @@
             // tumorsDataGridView
             // 
             this.tumorsDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.tumorsDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.tumorsDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.tumorsDataGridView.AutoGenerateColumns = false;
             this.tumorsDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tumorsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tumorsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.tumorsDataGridView.ColumnHeadersHeight = 25;
             this.tumorsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tumorSiteDataGridViewTextBoxColumn,
@@ -743,6 +778,7 @@
             this.tumorsDataGridView.Location = new System.Drawing.Point(114, 34);
             this.tumorsDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.tumorsDataGridView.Name = "tumorsDataGridView";
+            this.tumorsDataGridView.ReadOnly = true;
             this.tumorsDataGridView.RowHeadersVisible = false;
             this.tumorsDataGridView.Size = new System.Drawing.Size(148, 137);
             this.tumorsDataGridView.TabIndex = 120;
@@ -754,6 +790,7 @@
             this.tumorSiteDataGridViewTextBoxColumn.FillWeight = 20F;
             this.tumorSiteDataGridViewTextBoxColumn.HeaderText = "TumorSite";
             this.tumorSiteDataGridViewTextBoxColumn.Name = "tumorSiteDataGridViewTextBoxColumn";
+            this.tumorSiteDataGridViewTextBoxColumn.ReadOnly = true;
             this.tumorSiteDataGridViewTextBoxColumn.Width = 80;
             // 
             // pathNumDataGridViewTextBoxColumn
@@ -762,6 +799,7 @@
             this.pathNumDataGridViewTextBoxColumn.FillWeight = 20F;
             this.pathNumDataGridViewTextBoxColumn.HeaderText = "PathNum";
             this.pathNumDataGridViewTextBoxColumn.Name = "pathNumDataGridViewTextBoxColumn";
+            this.pathNumDataGridViewTextBoxColumn.ReadOnly = true;
             this.pathNumDataGridViewTextBoxColumn.Width = 80;
             // 
             // bloodTestNumDataGridViewTextBoxColumn
@@ -770,6 +808,7 @@
             this.bloodTestNumDataGridViewTextBoxColumn.FillWeight = 20F;
             this.bloodTestNumDataGridViewTextBoxColumn.HeaderText = "BloodTestNum";
             this.bloodTestNumDataGridViewTextBoxColumn.Name = "bloodTestNumDataGridViewTextBoxColumn";
+            this.bloodTestNumDataGridViewTextBoxColumn.ReadOnly = true;
             this.bloodTestNumDataGridViewTextBoxColumn.Width = 80;
             // 
             // _bloodTestNumLabel
@@ -976,30 +1015,6 @@
             this._savePatientButton.Text = "Save ";
             this._savePatientButton.UseVisualStyleBackColor = false;
             this._savePatientButton.Click += new System.EventHandler(this._savePatientButton_Click);
-            // 
-            // pathNumLinkLabel
-            // 
-            this.pathNumLinkLabel.AutoSize = true;
-            this.pathNumLinkLabel.Location = new System.Drawing.Point(5, 94);
-            this.pathNumLinkLabel.Name = "pathNumLinkLabel";
-            this.pathNumLinkLabel.Size = new System.Drawing.Size(99, 13);
-            this.pathNumLinkLabel.TabIndex = 151;
-            this.pathNumLinkLabel.TabStop = true;
-            this.pathNumLinkLabel.Text = "Patholgical Number";
-            this.pathNumLinkLabel.Visible = false;
-            this.pathNumLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.pathNumLinkLabel_LinkClicked);
-            // 
-            // bloodTestNumLinkLabel
-            // 
-            this.bloodTestNumLinkLabel.AutoSize = true;
-            this.bloodTestNumLinkLabel.Location = new System.Drawing.Point(5, 112);
-            this.bloodTestNumLinkLabel.Name = "bloodTestNumLinkLabel";
-            this.bloodTestNumLinkLabel.Size = new System.Drawing.Size(98, 13);
-            this.bloodTestNumLinkLabel.TabIndex = 152;
-            this.bloodTestNumLinkLabel.TabStop = true;
-            this.bloodTestNumLinkLabel.Text = "Blood Test Number";
-            this.bloodTestNumLinkLabel.Visible = false;
-            this.bloodTestNumLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.bloodTestNumLinkLabel_LinkClicked);
             // 
             // PatientUserControl
             // 
